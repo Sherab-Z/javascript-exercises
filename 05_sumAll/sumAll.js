@@ -10,14 +10,14 @@ This function takes 2 positive integer arguments (numA and numB) and returns the
 - Return sum;
 */
 
-const sumAll = function(numA, numB) {
-  let sum = 0;
+const sumAll = function(numA, numB) { // Returns the sum of all integers between (and including) numA and numB
+  let sum = 0; // Declare empty container
 
-  if (typeof numA !== "number" || typeof numB !== "number") {
+  if (typeof numA !== "number" || typeof numB !== "number") { // IF args are not numbers --> ERROR
     return "ERROR";
-  } else if (numA < 0 || numB < 0) {
+  } else if (numA < 0 || numB < 0) { // IF args are negative numbers --> ERROR
     return "ERROR";
-  } else {
+  } else { // IF numA, numB are valid:
     const lowNum = Math.min(numA, numB); // Get lowest of numA and numB
     const highNum = Math.max(numA, numB); // Get highest of numA and numB
 
