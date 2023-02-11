@@ -11,21 +11,19 @@ This function takes 2 positive integer arguments (numA and numB) and returns the
 */
 
 const sumAll = function(numA, numB) { // Returns the sum of all integers between (and including) numA and numB
-  let sum = 0; // Declare empty container
 
-  if (typeof numA !== "number" || typeof numB !== "number") { // IF args are not numbers --> ERROR
-    return "ERROR";
-  } else if (numA < 0 || numB < 0) { // IF args are negative numbers --> ERROR
-    return "ERROR";
-  } else { // IF numA, numB are valid:
-    const lowNum = Math.min(numA, numB); // Get lowest of numA and numB
-    const highNum = Math.max(numA, numB); // Get highest of numA and numB
+  if (!Number.isInteger(numA) || !Number.isInteger(numB)) return "ERROR"; // IF args are not numbers --> ERROR
+  if (numA < 0 || numB < 0) return "ERROR"; // IF args are negative numbers --> ERROR
 
-    for (let i = lowNum; i <= highNum; i++) { //Loop from lowNum to highNum
-      sum += i; // Add i to sum
+  // IF numA and numB are valid:
+  const lowNum = Math.min(numA, numB); // Get lowest of numA and numB
+  const highNum = Math.max(numA, numB); // Get highest of numA and numB
+  let sum = 0; // Declare empty container for result
+
+  for (let i = lowNum; i <= highNum; i++) { //Loop from lowNum to highNum
+    sum += i; // Add i to sum
   }
   return sum; // Return the sum
-  }
 };
 
 // Do not edit below this line
