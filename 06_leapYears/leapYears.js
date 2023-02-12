@@ -12,13 +12,8 @@ Returns boolean:
 */
 
 const leapYears = function(year) { // Return true if year is a leap year, false otherwise
-  if (year % 400 === 0) { // First take care of fringe case for returning true
-    return true;
-  } else if (year % 4 === 0 && !(year % 100 === 0)) { // Then cover common case for returning true
-    return true;
-  } else { // If none of these cases match, then year is not a leap year
-    return false;
-  }
+  return (year % 400 === 0)  // First cover fringe case
+  || (year % 4 === 0 && !(year % 100 === 0));  // Then cover all other viable cases
 };
 
 // Do not edit below this line
