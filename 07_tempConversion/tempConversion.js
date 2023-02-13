@@ -1,33 +1,23 @@
-// Formula to convert: f farenheit == ((f - 32) * (5/9)) celsius
 /* Pseudocode:
-1. Declare variable result;
-2. Apply formula to get conversion result;
-3. Declare variable roundedResult;
-4. Round result value to 1 decimal place and assign to roundedResult;
-  a. Use separate function roundNumToOneDecimalPlace() to round result value:
-      - Return rounded result value;
-4. Return roundedResult;
+1. Convert value to target unit;
+2. Round result value to 1 decimal place and assign to roundedResult;
+  a. Use separately declared function round() to round result value:
+3. Return roundedResult;
 */
-function roundNumToOneDecimalPlace(result) { // Accepts number argument; Returns argument rounded to 1 decimal place
-  return roundedResult = Number(result.toFixed(1)); // toFixed rounds result to 1 decimal place, then Number() converts returned string back into a number
+
+// Formula to convert temperature in Farenheit to Celsius
+function round(value, precision) { // Returns a number value rounded to any number of decimal places, specified by the precision argument
+  let multiplier = Math.pow(10, precision || 0);
+  return Math.round(value * multiplier) / multiplier;
 }
 
-const convertToCelsius = function (f) { // Accepts number argument; Returns number rounded to 1 decimal place
-  let result = 0;
-  result = ((f - 32) * (5 / 9)); // Conversion formula
-  let roundedResult = roundNumToOneDecimalPlace(result);
-  return roundedResult;
+const convertToCelsius = function (f) { // Accepts a number argument; Returns the number rounded to 1 decimal place
+  return round(((f - 32) * (5/9)), 1);
 };
 
-// Formula to convert: c celsius == (c * (9/5)+32) farenheit
-/* Pseudocode:
-
-*/
-const convertToFahrenheit = function (c) { // Accepts number argument; Returns number rounded to 1 decimal place
-  let result = 0;
-  result = ((c * (9/5)) + 32); // Conversion formula
-  let roundedResult = roundNumToOneDecimalPlace(result); 
-  return roundedResult;
+// Formula to convert temperature in Celsius to Farenheit
+const convertToFahrenheit = function (c) { // Accepts a number argument; Returns the number rounded to 1 decimal place
+  return round(((c * (9/5)) + 32), 1);
 };
 
 // Do not edit below this line
